@@ -9,7 +9,7 @@ Vim configuration file for php
 | Shortcut | Efect |
 |----------|-------|
 |Ctrl+/ | Open/Close NerdTree |
-|Ctrl+n | Find file |
-|Ctrl+o | Prevoius tab |
+|Ctrl+n | Find file in project (require git)|
+|Ctrl+o | Previous tab |
 |Ctrl+p | Next tab |
-|Shift+t | Open in new tab |
+|Shift+t | Open file in new tab |

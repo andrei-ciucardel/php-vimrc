@@ -10,7 +10,7 @@ set noerrorbells visualbell t_vb=
 autocmd GUIEnter * set visualbell t_vb=
 set number
 set laststatus=2
-let g:python3_host_prog="C:/Python39/python.exe"
+let NERDTreeShowHidden=1
 
 call plug#begin()
 Plug 'morhetz/gruvbox'
@@ -46,7 +46,7 @@ autocmd BufWinEnter * silent NERDTreeMirror
 " Mirror the NERDTree before showing it. This makes it the same on all tabs.
 "nnoremap <C-n> :NERDTreeMirror<CR>:NERDTreeFocus<CR>
 
-nnoremap <C-n> :tabprevious<CR>
+nnoremap <C-o> :tabprevious<CR>
 nnoremap <C-p> :tabnext<CR>
 
 "vim-php-cs-fixer ----

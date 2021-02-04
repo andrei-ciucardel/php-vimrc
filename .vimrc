@@ -24,6 +24,7 @@ Plug 'itchyny/lightline.vim'
 Plug 'tpope/vim-commentary'
 
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'marlonfan/coc-phpls'
 
 call plug#end()
 
@@ -87,3 +88,12 @@ endif
 " format on enter, <cr> could be remapped by other vim plugin
 inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
                               \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+                              
+" arnaud-lb/vim-php-namespace
+function! IPhpInsertUse()
+    call PhpInsertUse()
+    call feedkeys('a',  'n')
+endfunction
+autocmd FileType php inoremap <Leader>u <Esc>:call IPhpInsertUse()<CR>
+autocmd FileType php noremap <Leader>u :call PhpInsertUse()<CR>
+

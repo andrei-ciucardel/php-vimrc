@@ -22,9 +22,9 @@ Plug 'StanAngeloff/php.vim'
 Plug 'stephpy/vim-php-cs-fixer'
 Plug 'itchyny/lightline.vim'
 Plug 'tpope/vim-commentary'
-
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'marlonfan/coc-phpls'
+Plug 'arnaud-lb/vim-php-namespace'
 
 call plug#end()
 
@@ -38,7 +38,9 @@ let g:fzf_buffers_jump = 2
 
 "NERDTree ---
 "autoload nerdtree on start
-autocmd vimenter * NERDTree
+" Start NERDTree when Vim is started without file arguments.
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 0 && !exists('s:std_in') | NERDTree | endif
 map <C-\> :NERDTreeToggle<CR>
 
 " Open the existing NERDTree on each new tab.
@@ -88,7 +90,7 @@ endif
 " format on enter, <cr> could be remapped by other vim plugin
 inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
                               \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
-                              
+
 " arnaud-lb/vim-php-namespace
 function! IPhpInsertUse()
     call PhpInsertUse()
@@ -96,4 +98,3 @@ function! IPhpInsertUse()
 endfunction
 autocmd FileType php inoremap <Leader>u <Esc>:call IPhpInsertUse()<CR>
 autocmd FileType php noremap <Leader>u :call PhpInsertUse()<CR>
-
